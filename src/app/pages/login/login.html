@@ -1,0 +1,105 @@
+<div class="min-h-screen bg-[#f4f7fb] flex items-center justify-center px-4 py-10 font-sans">
+  <div class="w-full max-w-[1080px]">
+    <div
+      class="grid grid-cols-1 md:grid-cols-[420px_1fr] rounded-[32px] overflow-hidden shadow-[0_30px_90px_rgba(15,23,42,0.12)] bg-white"
+    >
+      <!-- Left Panel -->
+      <div
+        class="relative bg-gradient-to-br from-[#2557f5] via-[#3d6cf9] to-[#175ef2] text-white p-10 md:p-12 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <span
+              class="w-11 h-11 rounded-3xl bg-white/15 flex items-center justify-center text-white text-xl"
+            >
+              <i class="pi pi-heart-fill"></i>
+            </span>
+            <span class="text-lg font-semibold tracking-wide">HealthSync</span>
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-semibold leading-tight">
+            Secure access to your healthcare ecosystem
+          </h2>
+          <p class="mt-5 text-sm text-white/80 max-w-[320px]">
+            Manage patient data, analytics, and workflows with enterprise-grade security.
+          </p>
+        </div>
+
+        <div class="text-[12px] text-white/75">© 2026 HealthSync Inc.</div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="p-8 md:p-10">
+        <div class="max-w-[420px] mx-auto">
+          <h1 class="text-3xl font-semibold text-slate-900">Welcome back</h1>
+          <p class="mt-3 text-sm text-slate-500">Please sign in to continue</p>
+
+          <div class="mt-10 space-y-5">
+            <div>
+              <label
+                for="email"
+                class="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-600 mb-2"
+                >Email</label
+              >
+              <input
+                pInputText
+                id="email"
+                [(ngModel)]="email"
+                placeholder="doctor@hospital.com"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2563ff] focus:ring-2 focus:ring-[#2563ff]/20 shadow-sm"
+              />
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label
+                  for="password"
+                  class="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-600"
+                  >Password</label
+                >
+                <a href="#" class="text-sm font-semibold text-[#2563ff] hover:underline"
+                  >Forgot password?</a
+                >
+              </div>
+              <input
+                pInputText
+                id="password"
+                type="password"
+                [(ngModel)]="password"
+                placeholder="Enter your password"
+                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2563ff] focus:ring-2 focus:ring-[#2563ff]/20 shadow-sm"
+              />
+            </div>
+
+            <button
+              class="w-full rounded-2xl bg-[#2563ff] py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#2563ff]/20 hover:bg-[#1e4ed8] transition-colors"
+            >
+              Sign In
+            </button>
+          </div>
+
+          <div class="relative my-8">
+            <div class="absolute inset-x-0 top-1/2 border-t border-slate-200"></div>
+            <div class="relative flex justify-center">
+              <span
+                class="bg-white px-4 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400"
+                >OR</span
+              >
+            </div>
+          </div>
+
+          <button
+            class="w-full rounded-2xl border border-slate-200 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
+          >
+            Sign in with Google
+          </button>
+
+          <p class="mt-7 text-center text-sm text-slate-500">
+            Don’t have an account?
+            <a href="#" class="font-semibold text-[#2563ff] hover:underline">Sign up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "LOGIN": {
+    "TITLE": "Welcome Back",
+    "SUBTITLE": "Please enter your credentials to continue",
+    "EMAIL": "Work Email",
+    "PASSWORD": "Password",
+    "SUBMIT": "Log In",
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "NEW_USER": "New to the platform?",
+    "REQUEST_ACCESS": "Request Access"
+  },
+  "LANGUAGES": {
+    "EN": "English",
+    "ES": "Spanish"
+  }
+}
