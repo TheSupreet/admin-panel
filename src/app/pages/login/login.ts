@@ -1,42 +1,49 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, OnInit, signal, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngxs/store';
-import { SettingsState, ChangeLanguage } from '../../store/settings.state';
-import { TranslateModule } from '@ngx-translate/core';
-import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
-import { MenuModule } from 'primeng/menu';
-import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'app-login',
   imports: [
     CommonModule,
-    TranslateModule,
-    InputTextModule,
     FormsModule,
-    MenuModule
+    ButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    PasswordModule,
   ],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrl: './login.css',
+  encapsulation: ViewEncapsulation.None,
 })
 export class Login implements OnInit {
-  private store = inject(Store);
-  
-  settings$ = this.store.select(SettingsState.language);
+  private currentTheme = signal('light');
 
-  languages: MenuItem[] = [
-    { label: 'English', command: () => this.setLang('en') },
-    { label: 'Español', command: () => this.setLang('es') }
-  ];
+  // Computed property for theme icon
+  themeIcon = computed(() => (this.currentTheme() === 'light' ? 'pi pi-moon' : 'pi pi-sun'));
 
   email = '';
   password = '';
+  rememberMe = false;
 
   ngOnInit() {
+    // Initialize theme from localStorage or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    this.setTheme(savedTheme);
   }
 
-  setLang(lang: string) {
-    this.store.dispatch(new ChangeLanguage(lang));
+  toggleTheme() {
+    const newTheme = this.currentTheme() === 'light' ? 'dark' : 'light';
+    this.setTheme(newTheme);
+  }
+
+  private setTheme(theme: string) {
+    this.currentTheme.set(theme);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }
 }

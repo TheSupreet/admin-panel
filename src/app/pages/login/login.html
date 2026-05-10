@@ -1,105 +1,150 @@
-<div class="min-h-screen bg-[#f4f7fb] flex items-center justify-center px-4 py-10 font-sans">
-  <div class="w-full max-w-[1080px]">
-    <div
-      class="grid grid-cols-1 md:grid-cols-[420px_1fr] rounded-[32px] overflow-hidden shadow-[0_30px_90px_rgba(15,23,42,0.12)] bg-white"
-    >
-      <!-- Left Panel -->
-      <div
-        class="relative bg-gradient-to-br from-[#2557f5] via-[#3d6cf9] to-[#175ef2] text-white p-10 md:p-12 flex flex-col justify-between"
-      >
+<div class="login-screen font-sans">
+  <div class="login-card">
+    <section class="left-panel">
+      <div class="left-overlay"></div>
+      <div class="left-content">
         <div>
-          <div class="flex items-center gap-3 mb-6">
-            <span
-              class="w-11 h-11 rounded-3xl bg-white/15 flex items-center justify-center text-white text-xl"
-            >
-              <i class="pi pi-heart-fill"></i>
+          <div class="brand flex items-center gap-3 mb-8">
+            <span class="brand-icon">
+              <i class="pi pi-map-marker"></i>
             </span>
-            <span class="text-lg font-semibold tracking-wide">HealthSync</span>
+            <div>
+              <p class="brand-title">CliNutri</p>
+              <p class="brand-subtitle">Less Math, More Care</p>
+            </div>
           </div>
 
-          <h2 class="text-3xl md:text-4xl font-semibold leading-tight">
-            Secure access to your healthcare ecosystem
-          </h2>
-          <p class="mt-5 text-sm text-white/80 max-w-[320px]">
-            Manage patient data, analytics, and workflows with enterprise-grade security.
+          <h1 class="left-heading">Know what's <span>in your food.</span></h1>
+          <p class="left-description">
+            Access the full USDA FoodData Central database. Search hundreds of thousands of foods,
+            explore detailed macronutrient breakdowns, and track your dietary intake with
+            confidence.
           </p>
         </div>
 
-        <div class="text-[12px] text-white/75">© 2026 HealthSync Inc.</div>
+        <div class="powered-chip">
+          <i class="pi pi-info-circle"></i>
+          Powered by USDA FoodData Central
+        </div>
       </div>
+    </section>
 
-      <!-- Right Panel -->
-      <div class="p-8 md:p-10">
-        <div class="max-w-[420px] mx-auto">
-          <h1 class="text-3xl font-semibold text-slate-900">Welcome back</h1>
-          <p class="mt-3 text-sm text-slate-500">Please sign in to continue</p>
+    <section class="right-panel">
+      <div class="auth-panel">
+        <button
+          type="button"
+          class="theme-toggle"
+          aria-label="Toggle theme"
+          (click)="toggleTheme()"
+        >
+          <i [class]="themeIcon()"></i>
+        </button>
 
-          <div class="mt-10 space-y-5">
-            <div>
-              <label
-                for="email"
-                class="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-600 mb-2"
-                >Email</label
-              >
-              <input
-                pInputText
-                id="email"
-                [(ngModel)]="email"
-                placeholder="doctor@hospital.com"
-                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2563ff] focus:ring-2 focus:ring-[#2563ff]/20 shadow-sm"
-              />
+        <div class="panel-box">
+          <div class="panel-header">
+            <span class="panel-tag">Welcome back</span>
+            <h2>Sign in to <span>CliNutri</span></h2>
+            <p>Your food data dashboard awaits.</p>
+          </div>
+
+          <form class="form-grid">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <div class="input-wrap">
+                <svg
+                  class="input-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                />
+              </div>
             </div>
 
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <label
-                  for="password"
-                  class="block text-xs font-semibold uppercase tracking-[0.16em] text-slate-600"
-                  >Password</label
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <svg
+                  class="input-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
                 >
-                <a href="#" class="text-sm font-semibold text-[#2563ff] hover:underline"
-                  >Forgot password?</a
-                >
+                  <rect x="3" y="11" width="18" height="10" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="•••••••••••"
+                  autocomplete="current-password"
+                />
               </div>
-              <input
-                pInputText
-                id="password"
-                type="password"
-                [(ngModel)]="password"
-                placeholder="Enter your password"
-                class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-[#2563ff] focus:ring-2 focus:ring-[#2563ff]/20 shadow-sm"
-              />
+            </div>
+
+            <div class="row-between remember-row">
+              <label class="remember-label">
+                <input
+                  type="checkbox"
+                  name="rememberMe"
+                  [(ngModel)]="rememberMe"
+                  class="remember-checkbox"
+                />
+                Remember me
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
             </div>
 
             <button
-              class="w-full rounded-2xl bg-[#2563ff] py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#2563ff]/20 hover:bg-[#1e4ed8] transition-colors"
-            >
-              Sign In
+              pButton
+              type="button"
+              label="Sign in"
+              class="sign-in-btn"
+              styleClass="p-button-rounded p-button-lg"
+            ></button>
+          </form>
+
+          <!-- <div class="divider">
+            <span>or continue with</span>
+          </div>
+
+          <div class="social-grid">
+            <button pButton type="button" class="social-btn" styleClass="p-button-rounded p-button-outlined">
+              <i class="pi pi-google"></i>
+              <span>Google</span>
+            </button>
+            <button pButton type="button" class="social-btn" styleClass="p-button-rounded p-button-outlined">
+              <i class="pi pi-github"></i>
+              <span>GitHub</span>
             </button>
           </div>
 
-          <div class="relative my-8">
-            <div class="absolute inset-x-0 top-1/2 border-t border-slate-200"></div>
-            <div class="relative flex justify-center">
-              <span
-                class="bg-white px-4 text-xs font-semibold uppercase tracking-[0.22em] text-slate-400"
-                >OR</span
-              >
-            </div>
-          </div>
-
-          <button
-            class="w-full rounded-2xl border border-slate-200 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition"
-          >
-            Sign in with Google
-          </button>
-
-          <p class="mt-7 text-center text-sm text-slate-500">
-            Don’t have an account?
-            <a href="#" class="font-semibold text-[#2563ff] hover:underline">Sign up</a>
-          </p>
+          <p class="signup-text">
+            Don't have an account?
+            <a href="#">Create one free</a>
+          </p> -->
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </div>
